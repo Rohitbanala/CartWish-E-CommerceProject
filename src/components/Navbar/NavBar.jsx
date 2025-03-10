@@ -1,11 +1,38 @@
 import "./NavBar.css";
+import rocket from "../../assets/rocket.png";
+import star from "../../assets/glowing-star.png";
+import idButton from "../../assets/id-button.png";
+import memo from "../../assets/memo.png";
+import lock from "../../assets/package.png";
+import order from "../../assets/basket.png";
+import LinkWithIcon from "./LinkWithIcon";
 export default function NavBar() {
   return (
-    <div className="navbar">
-      <div>
+    <div className="align_center navbar">
+      <div className="align_center">
         <h1 className="navbar_heading">CartWish</h1>
+        <form className="align_center navbar_form">
+          <input
+            type="text"
+            className="navbar_search"
+            placeholder="Search Products"
+          />
+          <button type="submit" className="search_button">
+            Search
+          </button>
+        </form>
       </div>
-      <div></div>
+      <div className="align_center navbar_links">
+        <LinkWithIcon title="Home" link="/" emoji={rocket} />
+        <LinkWithIcon title="Products" link="/products" emoji={star} />
+        <LinkWithIcon title="LogIn" link="/login" emoji={idButton} />
+        <LinkWithIcon title="SignUp" link="/signup" emoji={memo} />
+        <LinkWithIcon title="MyOrders" link="/myorders" emoji={order} />
+        <LinkWithIcon title="LogOut" link="/logout" emoji={lock} />
+        <a href="/cart" className="align_center">
+          Cart <p className="align_center cart_counts">0</p>
+        </a>
+      </div>
     </div>
   );
 }
