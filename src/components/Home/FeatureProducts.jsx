@@ -1,5 +1,5 @@
 import "./FeaturedProducts.css";
-import ProductCard from "./ProductCard";
+import ProductCard from "../Products/ProductCard";
 export default function FeaturedProducts() {
   return (
     <section className="featured_products">
