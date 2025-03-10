@@ -1,6 +1,8 @@
 import user from "../../assets/user.webp";
 import TableComponent from "../Common/Table";
+import QuantityInput from "../SingleProduct/QuantityInput";
 import "./CartPage.css";
+import remove from "../../assets/remove.png";
 export default function CartPage() {
   return (
     <section className="align_center cart_page">
@@ -18,9 +20,17 @@ export default function CartPage() {
           <tr>
             <td>iPhone 14</td>
             <td>$999</td>
-            <td>1</td>
+            <td className="align_center table_quantity_input">
+              <QuantityInput />
+            </td>
             <td>$999</td>
-            <td>Remove</td>
+            <td>
+              <img
+                src={remove}
+                alt="remove icon"
+                className="cart_remove_icon"
+              />
+            </td>
           </tr>
         </tbody>
       </TableComponent>
