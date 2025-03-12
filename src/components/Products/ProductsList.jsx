@@ -1,16 +1,8 @@
-import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductsList.css";
-import apiClient from "../../utils/api-client";
+import useData from "../../hooks/useData";
 export default function ProductsList() {
-  const [products, setProducts] = useState([]);
-  const [error, setErrors] = useState("");
-  useEffect(() => {
-    apiClient
-      .get("/products")
-      .then((res) => setProducts(res.data.products))
-      .catch((err) => setErrors(err.message));
-  }, []);
+  const { data, errors: error } = useData("/products");
   return (
     <section className="products_list_section">
       <header className="align_center products_list_header">
@@ -25,18 +17,19 @@ export default function ProductsList() {
       </header>
       <div className="products_list">
         {error && <em className="form_error">{error}</em>}
-        {products.map((product) => (
-          <ProductCard
-            key={product._id}
-            id={product._id}
-            image={product.images[0]}
-            price={product.price}
-            title={product.title}
-            rating={product.reviews.rate}
-            ratingCounts={product.reviews.count}
-            stock={product.stock}
-          />
-        ))}
+        {data?.products &&
+          data?.products.map((product) => (
+            <ProductCard
+              key={product._id}
+              id={product._id}
+              image={product.images[0]}
+              price={product.price}
+              title={product.title}
+              rating={product.reviews.rate}
+              ratingCounts={product.reviews.count}
+              stock={product.stock}
+            />
+          ))}
       </div>
     </section>
   );
