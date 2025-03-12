@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signup } from "../../services/userServices";
 const schema = z
   .object({
     name: z
@@ -14,7 +15,7 @@ const schema = z
       .string()
       .min(8, { message: "Password must be at least 8 characters." }),
     cpassword: z.string(),
-    address: z
+    deliveryAddress: z
       .string()
       .min(15, { message: "Address must be at least 15 characters." }),
   })
@@ -28,8 +29,16 @@ const SignupPage = () => {
     register,
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
-  function handleSubmitting(formData) {
-    console.log(formData);
+  const [formError, setFormError] = useState("");
+  async function handleSubmitting(formData) {
+    try {
+      await signup(formData, profilePic);
+    } catch (err) {
+      if (err.response && err.response.status === 400) {
+        console.log(err.response);
+        setFormError(err.response.data.message);
+      }
+    }
   }
   const [profilePic, setProfilePic] = useState(null);
   function handleProfile(event) {
@@ -117,16 +126,17 @@ const SignupPage = () => {
           <div className="signup_textares_section">
             <label htmlFor="address">Delivery Address</label>
             <textarea
-              id="address"
+              id="deliveryAddress"
               className="input_textarea"
               placeholder="Enter delivery address"
-              {...register("address")}
+              {...register("deliveryAddress")}
             />
           </div>
         </div>
         {errors.address && (
           <em className="form_error">{errors.address.message}</em>
         )}
+        {formError && <em className="form_error">{formError}</em>}
         <button className="search_button form_submit" type="submit">
           Submit
         </button>
