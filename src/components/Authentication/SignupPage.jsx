@@ -1,5 +1,6 @@
 import "./SignupPage.css";
 import user from "../../assets/user.webp";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,6 +31,11 @@ const SignupPage = () => {
   function handleSubmitting(formData) {
     console.log(formData);
   }
+  const [profilePic, setProfilePic] = useState(null);
+  function handleProfile(event) {
+    setProfilePic(event.target.files[0]);
+  }
+  console.log(profilePic);
   return (
     <section className="align_center form_page">
       <form
@@ -40,12 +46,20 @@ const SignupPage = () => {
 
         <div className="image_input_section">
           <div className="image_preview">
-            <img src={user} id="file-ip-1-preview" />
+            <img
+              src={profilePic ? URL.createObjectURL(profilePic) : user}
+              id="file-ip-1-preview"
+            />
           </div>
           <label htmlFor="file-ip-1" className="image_label">
             Upload Image
           </label>
-          <input type="file" id="file-ip-1" className="image_input" />
+          <input
+            type="file"
+            id="file-ip-1"
+            className="image_input"
+            onChange={handleProfile}
+          />
         </div>
 
         {/* Form Inputs */}
