@@ -3,7 +3,16 @@ import TableComponent from "../Common/Table";
 import QuantityInput from "../SingleProduct/QuantityInput";
 import "./CartPage.css";
 import remove from "../../assets/remove.png";
-export default function CartPage() {
+import { useEffect, useState } from "react";
+export default function CartPage({ cart }) {
+  const [subTotal, setSubTotal] = useState(0);
+  useEffect(() => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.product.price * item.quantity;
+    });
+    setSubTotal(total);
+  }, [cart]);
   return (
     <section className="align_center cart_page">
       <div className="align_center user_info">
@@ -17,21 +26,23 @@ export default function CartPage() {
         headings={["Item", "Price", "Quantity", "Total", "Remove"]}
       >
         <tbody>
-          <tr>
-            <td>iPhone 14</td>
-            <td>$999</td>
-            <td className="align_center table_quantity_input">
-              <QuantityInput />
-            </td>
-            <td>$999</td>
-            <td>
-              <img
-                src={remove}
-                alt="remove icon"
-                className="cart_remove_icon"
-              />
-            </td>
-          </tr>
+          {cart.map(({ product, quantity }) => (
+            <tr key={product._id}>
+              <td>{product.title}</td>
+              <td>${product.price}</td>
+              <td className="align_center table_quantity_input">
+                <QuantityInput quantity={quantity} stock={product.stock} />
+              </td>
+              <td>${quantity * product.price}</td>
+              <td>
+                <img
+                  src={remove}
+                  alt="remove icon"
+                  className="cart_remove_icon"
+                />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </TableComponent>
 
@@ -39,7 +50,7 @@ export default function CartPage() {
         <tbody>
           <tr>
             <td>Subtotal</td>
-            <td>$999</td>
+            <td>${subTotal}</td>
           </tr>
           <tr>
             <td>Shipping Charge</td>
@@ -47,7 +58,7 @@ export default function CartPage() {
           </tr>
           <tr className="cart_bill_final">
             <td>Total</td>
-            <td>$1044</td>
+            <td>${subTotal + 5}</td>
           </tr>
         </tbody>
       </table>

@@ -4,7 +4,7 @@ import "./SingleProduct.css";
 import { useState } from "react";
 import useData from "../../hooks/useData";
 
-export default function SingleProduct() {
+export default function SingleProduct({ addToCart }) {
   const [selectedImage, setSelectedImage] = useState(0);
   function imageHandler(imageIndex) {
     setSelectedImage(imageIndex);
@@ -46,7 +46,14 @@ export default function SingleProduct() {
                 stock={product.stock}
               />
             </div>
-            <button className="search_button add_cart">Add to cart</button>
+            <button
+              className="search_button add_cart"
+              onClick={() => {
+                addToCart(product, quantity);
+              }}
+            >
+              Add to cart
+            </button>
           </div>
         </>
       )}

@@ -7,7 +7,7 @@ import lock from "../../assets/package.png";
 import order from "../../assets/basket.png";
 import LinkWithIcon from "./LinkWithIcon";
 import { NavLink } from "react-router-dom";
-export default function NavBar({ user }) {
+export default function NavBar({ user, cartCount }) {
   return (
     <div className="align_center navbar">
       <div className="align_center">
@@ -37,7 +37,7 @@ export default function NavBar({ user }) {
             <LinkWithIcon title="MyOrders" link="/myorders" emoji={order} />
             <LinkWithIcon title="LogOut" link="/logout" emoji={lock} />
             <NavLink to="/cart" className="align_center">
-              Cart <p className="align_center cart_counts">0</p>
+              Cart <p className="align_center cart_counts">{cartCount}</p>
             </NavLink>
           </>
         )}

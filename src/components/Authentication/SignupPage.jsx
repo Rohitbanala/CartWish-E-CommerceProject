@@ -31,11 +31,9 @@ const SignupPage = () => {
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
   const [formError, setFormError] = useState("");
-
   async function handleSubmitting(formData) {
     try {
       await signup(formData, profilePic);
-
       window.location = "/";
     } catch (err) {
       if (err.response && err.response.status === 400) {

@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import LoginPage from "./components/Authentication/LoginPage";
-import SignupPage from "./components/Authentication/SignupPage";
-import CartPage from "./components/Cart/CartPage";
-import HomePage from "./components/Home/HomePage";
-import MyOrderPage from "./components/MyOrder/MyOrderPage";
 import NavBar from "./components/Navbar/NavBar";
-import ProductPage from "./components/Products/ProductPage";
 import Routing from "./components/Routing/Routing";
-import SingleProduct from "./components/SingleProduct/SingleProduct";
-import { jwtDecode } from "jwt-decode";
-import { getUser } from "./services/userServices";
+import { getJwt, getUser } from "./services/userServices";
+import setAuthToken from "./utils/setAuthToken";
+import { addToCartAPI, getCartAPI } from "./services/cartServices";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+setAuthToken(getJwt());
+
 function App() {
   const [user, setUser] = useState("");
+  const [cart, setCart] = useState([]);
   useEffect(() => {
     try {
       const jwtuser = getUser();
@@ -22,13 +22,46 @@ function App() {
       } else {
         setUser(jwtuser);
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
+  function addToCart(product, quantity) {
+    const updatedCart = [...cart];
+    const productIndex = updatedCart.findIndex(
+      (item) => item.product._id === product._id
+    );
+    if (productIndex === -1) {
+      updatedCart.push({ product, quantity });
+    } else {
+      updatedCart[productIndex].quantity += quantity;
+    }
+    setCart(updatedCart);
+    addToCartAPI(product._id, quantity)
+      .then((res) => {
+        toast.success("Product added Successfully!");
+      })
+      .catch((err) => {
+        toast.error("Adding Product Failed");
+        setCart(cart);
+      });
+  }
+  function getCart() {
+    getCartAPI()
+      .then((res) => setCart(res.data))
+      .catch((err) => toast("Unable to get Cart Details"));
+  }
+  useEffect(() => {
+    if (user) {
+      getCart();
+    }
+  }, [user]);
   return (
     <div className="app">
-      <NavBar user={user} />
+      <NavBar user={user} cartCount={cart.length} />
       <main>
-        <Routing />
+        <ToastContainer position="bottom-right" />
+        <Routing addToCart={addToCart} cart={cart} />
       </main>
     </div>
   );
