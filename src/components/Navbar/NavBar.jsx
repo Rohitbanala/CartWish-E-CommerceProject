@@ -7,7 +7,13 @@ import lock from "../../assets/package.png";
 import order from "../../assets/basket.png";
 import LinkWithIcon from "./LinkWithIcon";
 import { NavLink } from "react-router-dom";
-export default function NavBar({ user, cartCount }) {
+import { useContext } from "react";
+import userContext from "../../contexts/userContext";
+import cartContext from "../../contexts/cartContext";
+export default function NavBar() {
+  const user = useContext(userContext);
+  const { cart, addToCart } = useContext(cartContext);
+  const cartCount = cart.length;
   return (
     <div className="align_center navbar">
       <div className="align_center">

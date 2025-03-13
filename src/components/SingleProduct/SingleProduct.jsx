@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
 import QuantityInput from "./QuantityInput";
 import "./SingleProduct.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import useData from "../../hooks/useData";
+import cartContext from "../../contexts/cartContext";
 
-export default function SingleProduct({ addToCart }) {
+export default function SingleProduct() {
   const [selectedImage, setSelectedImage] = useState(0);
+  const { cart, addToCart } = useContext(cartContext);
   function imageHandler(imageIndex) {
     setSelectedImage(imageIndex);
   }

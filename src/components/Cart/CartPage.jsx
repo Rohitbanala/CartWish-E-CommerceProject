@@ -3,9 +3,14 @@ import TableComponent from "../Common/Table";
 import QuantityInput from "../SingleProduct/QuantityInput";
 import "./CartPage.css";
 import remove from "../../assets/remove.png";
-import { useEffect, useState } from "react";
-export default function CartPage({ cart }) {
+import { useEffect, useState, useContext } from "react";
+import userContext from "../../contexts/userContext";
+import cartContext from "../../contexts/cartContext";
+export default function CartPage() {
   const [subTotal, setSubTotal] = useState(0);
+  const userObj = useContext(userContext);
+  const { cart, addToCart } = useContext(cartContext);
+  console.log(userObj);
   useEffect(() => {
     let total = 0;
     cart.forEach((item) => {
@@ -16,10 +21,13 @@ export default function CartPage({ cart }) {
   return (
     <section className="align_center cart_page">
       <div className="align_center user_info">
-        <img src={user} alt="user profile" />
+        <img
+          src={`http://localhost:5000/profile/${userObj?.profilePic}`}
+          alt="user profile"
+        />
         <div>
-          <p className="user_name">Harley</p>
-          <p className="user_email">Harley@gmail.com</p>
+          <p className="user_name">{userObj?.name}</p>
+          <p className="user_email">{userObj?.email}</p>
         </div>
       </div>
       <TableComponent
