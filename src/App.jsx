@@ -4,7 +4,13 @@ import NavBar from "./components/Navbar/NavBar";
 import Routing from "./components/Routing/Routing";
 import { getJwt, getUser } from "./services/userServices";
 import setAuthToken from "./utils/setAuthToken";
-import { addToCartAPI, getCartAPI } from "./services/cartServices";
+import {
+  addToCartAPI,
+  decreaseProductAPI,
+  getCartAPI,
+  increaseProductAPI,
+  removeFromCartAPI,
+} from "./services/cartServices";
 import { ToastContainer, toast } from "react-toastify";
 import userContext from "./contexts/userContext";
 import cartContext from "./contexts/cartContext";
@@ -51,16 +57,52 @@ function App() {
   function getCart() {
     getCartAPI()
       .then((res) => setCart(res.data))
-      .catch((err) => toast("Unable to get Cart Details"));
+      .catch((err) => toast.error("Unable to get Cart Details"));
   }
   useEffect(() => {
     if (user) {
       getCart();
     }
   }, [user]);
+  function removeFromCart(id) {
+    const oldCart = [...cart];
+    const newCart = oldCart.filter((item) => item.product._id !== id);
+    setCart(newCart);
+    removeFromCartAPI(id)
+      .then((res) => toast.success("Removed item successfully"))
+      .catch((err) => {
+        toast.error("Unable to delete item.");
+        setCart(oldCart);
+      });
+  }
+  function updateCart(type, id) {
+    const oldCart = [...cart];
+    const updatedCart = [...cart];
+    const productIndex = updatedCart.findIndex(
+      (item) => item.product._id === id
+    );
+    if (type === "+") {
+      updatedCart[productIndex].quantity += 1;
+      setCart(updatedCart);
+      increaseProductAPI(id).catch((err) => {
+        toast.error("can't increase");
+        setCart(oldCart);
+      });
+    }
+    if (type === "-") {
+      updatedCart[productIndex].quantity -= 1;
+      setCart(updatedCart);
+      decreaseProductAPI(id).catch((err) => {
+        toast.error("can't decrease");
+        setCart(oldCart);
+      });
+    }
+  }
   return (
     <userContext.Provider value={user}>
-      <cartContext.Provider value={{ cart, addToCart }}>
+      <cartContext.Provider
+        value={{ cart, addToCart, removeFromCart, updateCart, setCart }}
+      >
         <div className="app">
           <NavBar />
           <main>

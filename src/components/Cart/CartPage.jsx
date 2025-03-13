@@ -6,10 +6,14 @@ import remove from "../../assets/remove.png";
 import { useEffect, useState, useContext } from "react";
 import userContext from "../../contexts/userContext";
 import cartContext from "../../contexts/cartContext";
+import { checkOutAPI } from "../../services/orderServices";
+import { toast } from "react-toastify";
 export default function CartPage() {
   const [subTotal, setSubTotal] = useState(0);
   const userObj = useContext(userContext);
-  const { cart, addToCart } = useContext(cartContext);
+
+  const { cart, addToCart, removeFromCart, updateCart, setCart } =
+    useContext(cartContext);
   console.log(userObj);
   useEffect(() => {
     let total = 0;
@@ -18,6 +22,16 @@ export default function CartPage() {
     });
     setSubTotal(total);
   }, [cart]);
+  function checkout() {
+    const oldCart = [...cart];
+    setCart([]);
+    checkOutAPI()
+      .then((res) => toast.success("Order placed successfully"))
+      .catch((err) => {
+        toast.error("Can't process Order");
+        setCart(oldCart);
+      });
+  }
   return (
     <section className="align_center cart_page">
       <div className="align_center user_info">
@@ -39,7 +53,13 @@ export default function CartPage() {
               <td>{product.title}</td>
               <td>${product.price}</td>
               <td className="align_center table_quantity_input">
-                <QuantityInput quantity={quantity} stock={product.stock} />
+                <QuantityInput
+                  quantity={quantity}
+                  stock={product.stock}
+                  setQuantity={updateCart}
+                  cartPage={true}
+                  productId={product._id}
+                />
               </td>
               <td>${quantity * product.price}</td>
               <td>
@@ -47,6 +67,7 @@ export default function CartPage() {
                   src={remove}
                   alt="remove icon"
                   className="cart_remove_icon"
+                  onClick={() => removeFromCart(product._id)}
                 />
               </td>
             </tr>
@@ -70,7 +91,10 @@ export default function CartPage() {
           </tr>
         </tbody>
       </table>
-      <button className="search_button checkout_button">CheckOut</button>
+
+      <button className="search_button checkout_button" onClick={checkout}>
+        CheckOut
+      </button>
     </section>
   );
 }

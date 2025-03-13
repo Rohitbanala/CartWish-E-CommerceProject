@@ -4,10 +4,12 @@ import "./SingleProduct.css";
 import { useContext, useState } from "react";
 import useData from "../../hooks/useData";
 import cartContext from "../../contexts/cartContext";
+import userContext from "../../contexts/userContext";
 
 export default function SingleProduct() {
   const [selectedImage, setSelectedImage] = useState(0);
   const { cart, addToCart } = useContext(cartContext);
+  const user = useContext(userContext);
   function imageHandler(imageIndex) {
     setSelectedImage(imageIndex);
   }
@@ -40,22 +42,26 @@ export default function SingleProduct() {
             <h1 className="single_product_title">{product.title}</h1>
             <p className="single_product_description">{product.description}</p>
             <p className="single_product_price">${product.price.toFixed(2)}</p>
-            <h2 className="quantity_title">Quantity:</h2>
-            <div className="align_center quantity_input">
-              <QuantityInput
-                quantity={quantity}
-                setQuantity={setQuantity}
-                stock={product.stock}
-              />
-            </div>
-            <button
-              className="search_button add_cart"
-              onClick={() => {
-                addToCart(product, quantity);
-              }}
-            >
-              Add to cart
-            </button>
+            {user && (
+              <>
+                <h2 className="quantity_title">Quantity:</h2>
+                <div className="align_center quantity_input">
+                  <QuantityInput
+                    quantity={quantity}
+                    setQuantity={setQuantity}
+                    stock={product.stock}
+                  />
+                </div>
+                <button
+                  className="search_button add_cart"
+                  onClick={() => {
+                    addToCart(product, quantity);
+                  }}
+                >
+                  Add to cart
+                </button>
+              </>
+            )}
           </div>
         </>
       )}

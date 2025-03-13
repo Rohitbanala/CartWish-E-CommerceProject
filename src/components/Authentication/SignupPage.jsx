@@ -47,6 +47,9 @@ const SignupPage = () => {
     setProfilePic(event.target.files[0]);
   }
   console.log(profilePic);
+  if (getUser()) {
+    return <Navigate to="/" />;
+  }
   return (
     <section className="align_center form_page">
       <form

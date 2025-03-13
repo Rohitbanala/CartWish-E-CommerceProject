@@ -1,10 +1,20 @@
 import "./QuantityInput.css";
-export default function QuantityInput({ quantity, setQuantity, stock }) {
+export default function QuantityInput({
+  quantity,
+  setQuantity,
+  stock,
+  cartPage,
+  productId,
+}) {
   return (
     <>
       <button
         className="quantity_input_button"
-        onClick={() => setQuantity(quantity - 1)}
+        onClick={
+          cartPage
+            ? () => setQuantity("-", productId)
+            : () => setQuantity(quantity - 1)
+        }
         disabled={quantity <= 1}
       >
         -
@@ -12,7 +22,11 @@ export default function QuantityInput({ quantity, setQuantity, stock }) {
       <p className="quantity_input_count">{quantity}</p>
       <button
         className="quantity_input_button"
-        onClick={() => setQuantity(quantity + 1)}
+        onClick={
+          cartPage
+            ? () => setQuantity("+", productId)
+            : () => setQuantity(quantity + 1)
+        }
         disabled={quantity >= stock}
       >
         +
