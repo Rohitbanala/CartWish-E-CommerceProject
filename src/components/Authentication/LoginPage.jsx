@@ -24,8 +24,8 @@ export default function LoginPage() {
   let navigate = useNavigate();
   async function onSubmit(formData) {
     try {
-      const { data } = await login(formData);
-      localStorage.setItem("token", data.token);
+      await login(formData);
+
       window.location = "/";
     } catch (err) {
       if (err.response && err.response.status === 400) {

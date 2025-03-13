@@ -10,12 +10,12 @@ import ProductPage from "./components/Products/ProductPage";
 import Routing from "./components/Routing/Routing";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
 import { jwtDecode } from "jwt-decode";
+import { getUser } from "./services/userServices";
 function App() {
   const [user, setUser] = useState("");
   useEffect(() => {
     try {
-      const jwt = localStorage.getItem("token");
-      const jwtuser = jwtDecode(jwt);
+      const jwtuser = getUser();
       if (Date.now() > jwtuser.exp * 1000) {
         localStorage.removeItem("token");
         location.reload();
