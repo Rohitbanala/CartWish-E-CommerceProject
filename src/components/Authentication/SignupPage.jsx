@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signup } from "../../services/userServices";
+import { useNavigate } from "react-router-dom";
 const schema = z
   .object({
     name: z
@@ -30,9 +31,12 @@ const SignupPage = () => {
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
   const [formError, setFormError] = useState("");
+  const navigate = useNavigate();
   async function handleSubmitting(formData) {
     try {
-      await signup(formData, profilePic);
+      const { data } = await signup(formData, profilePic);
+      localStorage.setItem("token", data.token);
+      window.location = "/";
     } catch (err) {
       if (err.response && err.response.status === 400) {
         console.log(err.response);

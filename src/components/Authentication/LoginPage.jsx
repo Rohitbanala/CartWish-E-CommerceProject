@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import "./LoginPage.css";
 import { login } from "../../services/userServices";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const schema = z.object({
   email: z
     .string()
@@ -19,9 +20,19 @@ export default function LoginPage() {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
-
+  const [formError, setFormError] = useState("");
+  let navigate = useNavigate();
   async function onSubmit(formData) {
-    await login(formData);
+    try {
+      const { data } = await login(formData);
+      localStorage.setItem("token", data.token);
+      window.location = "/";
+    } catch (err) {
+      if (err.response && err.response.status === 400) {
+        console.log(err.response);
+        setFormError(err.response.data.message);
+      }
+    }
   }
   return (
     <section className="align_center form_page">
@@ -59,6 +70,8 @@ export default function LoginPage() {
           {errors.password && (
             <em className="form_error">{errors.password.message}</em>
           )}
+
+          {formError && <em className="form_error">{formError}</em>}
 
           <button type="submit" className="search_button form_submit">
             Submit
