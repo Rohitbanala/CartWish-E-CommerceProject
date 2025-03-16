@@ -24,6 +24,7 @@ function App() {
   useEffect(() => {
     try {
       const jwtuser = getUser();
+      console.log(jwtuser);
       if (Date.now() > jwtuser.exp * 1000) {
         localStorage.removeItem("token");
         location.reload();
