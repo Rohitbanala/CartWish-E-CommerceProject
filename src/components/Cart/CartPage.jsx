@@ -1,26 +1,24 @@
-import user from "../../assets/user.webp";
 import TableComponent from "../Common/Table";
 import QuantityInput from "../SingleProduct/QuantityInput";
 import "./CartPage.css";
 import remove from "../../assets/remove.png";
-import { useEffect, useState, useContext } from "react";
+import { useContext, useMemo, memo } from "react";
 import userContext from "../../contexts/userContext";
 import cartContext from "../../contexts/cartContext";
 import { checkOutAPI } from "../../services/orderServices";
 import { toast } from "react-toastify";
-export default function CartPage() {
-  const [subTotal, setSubTotal] = useState(0);
+function CartPage() {
   const userObj = useContext(userContext);
 
   const { cart, addToCart, removeFromCart, updateCart, setCart } =
     useContext(cartContext);
   console.log(userObj);
-  useEffect(() => {
+  const subTotal = useMemo(() => {
     let total = 0;
     cart.forEach((item) => {
       total += item.product.price * item.quantity;
     });
-    setSubTotal(total);
+    return total;
   }, [cart]);
   function checkout() {
     const oldCart = [...cart];
@@ -98,3 +96,5 @@ export default function CartPage() {
     </section>
   );
 }
+
+export default memo(CartPage);

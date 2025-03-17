@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signup } from "../../services/userServices";
+import { getUser, signup } from "../../services/userServices";
 import { useNavigate } from "react-router-dom";
 const schema = z
   .object({

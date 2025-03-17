@@ -3,10 +3,10 @@ import star from "../../assets/white-star.png";
 import basket from "../../assets/basket.png";
 import "./ProductCard.css";
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import cartContext from "../../contexts/cartContext";
 import userContext from "../../contexts/userContext";
-export default function ProductCard({ product }) {
+function ProductCard({ product }) {
   const { addToCart } = useContext(cartContext);
   const user = useContext(userContext);
   return (
@@ -42,3 +42,5 @@ export default function ProductCard({ product }) {
     </article>
   );
 }
+
+export default memo(ProductCard);

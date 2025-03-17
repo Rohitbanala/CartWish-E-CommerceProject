@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import NavBar from "./components/Navbar/NavBar";
 import Routing from "./components/Routing/Routing";
@@ -35,70 +35,82 @@ function App() {
       console.log(err);
     }
   }, []);
-  function addToCart(product, quantity) {
-    const updatedCart = [...cart];
-    const productIndex = updatedCart.findIndex(
-      (item) => item.product._id === product._id
-    );
-    if (productIndex === -1) {
-      updatedCart.push({ product, quantity });
-    } else {
-      updatedCart[productIndex].quantity += quantity;
-    }
-    setCart(updatedCart);
-    addToCartAPI(product._id, quantity)
-      .then((res) => {
-        toast.success("Product added Successfully!");
-      })
-      .catch((err) => {
-        toast.error("Adding Product Failed");
-        setCart(cart);
-      });
-  }
-  function getCart() {
-    getCartAPI()
-      .then((res) => setCart(res.data))
-      .catch((err) => toast.error("Unable to get Cart Details"));
-  }
+  const addToCart = useCallback(
+    function addToCart(product, quantity) {
+      const updatedCart = [...cart];
+      const productIndex = updatedCart.findIndex(
+        (item) => item.product._id === product._id
+      );
+      if (productIndex === -1) {
+        updatedCart.push({ product, quantity });
+      } else {
+        updatedCart[productIndex].quantity += quantity;
+      }
+      setCart(updatedCart);
+      addToCartAPI(product._id, quantity)
+        .then((res) => {
+          toast.success("Product added Successfully!");
+        })
+        .catch((err) => {
+          toast.error("Adding Product Failed");
+          setCart(cart);
+        });
+    },
+    [cart]
+  );
+  const getCart = useCallback(
+    function getCart() {
+      getCartAPI()
+        .then((res) => setCart(res.data))
+        .catch((err) => toast.error("Unable to get Cart Details"));
+    },
+    [user]
+  );
   useEffect(() => {
     if (user) {
       getCart();
     }
   }, [user]);
-  function removeFromCart(id) {
-    const oldCart = [...cart];
-    const newCart = oldCart.filter((item) => item.product._id !== id);
-    setCart(newCart);
-    removeFromCartAPI(id)
-      .then((res) => toast.success("Removed item successfully"))
-      .catch((err) => {
-        toast.error("Unable to delete item.");
-        setCart(oldCart);
-      });
-  }
-  function updateCart(type, id) {
-    const oldCart = [...cart];
-    const updatedCart = [...cart];
-    const productIndex = updatedCart.findIndex(
-      (item) => item.product._id === id
-    );
-    if (type === "+") {
-      updatedCart[productIndex].quantity += 1;
-      setCart(updatedCart);
-      increaseProductAPI(id).catch((err) => {
-        toast.error("can't increase");
-        setCart(oldCart);
-      });
-    }
-    if (type === "-") {
-      updatedCart[productIndex].quantity -= 1;
-      setCart(updatedCart);
-      decreaseProductAPI(id).catch((err) => {
-        toast.error("can't decrease");
-        setCart(oldCart);
-      });
-    }
-  }
+  const removeFromCart = useCallback(
+    function removeFromCart(id) {
+      const oldCart = [...cart];
+      const newCart = oldCart.filter((item) => item.product._id !== id);
+      setCart(newCart);
+      removeFromCartAPI(id)
+        .then((res) => toast.success("Removed item successfully"))
+        .catch((err) => {
+          toast.error("Unable to delete item.");
+          setCart(oldCart);
+        });
+    },
+    [cart]
+  );
+  const updateCart = useCallback(
+    function updateCart(type, id) {
+      const oldCart = [...cart];
+      const updatedCart = [...cart];
+      const productIndex = updatedCart.findIndex(
+        (item) => item.product._id === id
+      );
+      if (type === "+") {
+        updatedCart[productIndex].quantity += 1;
+        setCart(updatedCart);
+        increaseProductAPI(id).catch((err) => {
+          toast.error("can't increase");
+          setCart(oldCart);
+        });
+      }
+      if (type === "-") {
+        updatedCart[productIndex].quantity -= 1;
+        setCart(updatedCart);
+        decreaseProductAPI(id).catch((err) => {
+          toast.error("can't decrease");
+          setCart(oldCart);
+        });
+      }
+    },
+    [cart]
+  );
   return (
     <userContext.Provider value={user}>
       <cartContext.Provider

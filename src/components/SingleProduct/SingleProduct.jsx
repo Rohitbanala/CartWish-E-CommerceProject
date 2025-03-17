@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import QuantityInput from "./QuantityInput";
 import "./SingleProduct.css";
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import useData from "../../hooks/useData";
 import cartContext from "../../contexts/cartContext";
 import userContext from "../../contexts/userContext";
 
-export default function SingleProduct() {
+function SingleProduct() {
   const [selectedImage, setSelectedImage] = useState(0);
   const { cart, addToCart } = useContext(cartContext);
   const user = useContext(userContext);
@@ -68,3 +68,5 @@ export default function SingleProduct() {
     </section>
   );
 }
+
+export default memo(SingleProduct);
