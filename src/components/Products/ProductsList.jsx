@@ -4,6 +4,7 @@ import useData from "../../hooks/useData";
 import ProductCardSkeleton from "./ProductCartSkeleton";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useProducuList from "../../hooks/useProductList";
 export default function ProductsList() {
   const [page, setPages] = useState(1);
   const [search, setSearch] = useSearchParams();
@@ -15,7 +16,7 @@ export default function ProductsList() {
     data,
     errors: error,
     isLoading,
-  } = useData(
+  } = useProducuList(
     "/products",
     {
       params: {

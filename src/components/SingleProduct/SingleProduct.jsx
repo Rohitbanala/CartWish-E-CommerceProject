@@ -15,7 +15,11 @@ function SingleProduct() {
   }
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
-  const { data: product, errors, isLoading } = useData(`/products/${id}`);
+  const {
+    data: product,
+    errors,
+    isLoading,
+  } = useData(`/products/${id}`, null, ["products", id]);
   return (
     <section className="align_center single_product">
       {errors && <em className="form_error">{errors}</em>}

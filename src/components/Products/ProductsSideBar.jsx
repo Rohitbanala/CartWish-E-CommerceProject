@@ -2,7 +2,12 @@ import LinkWithIcon from "../Navbar/LinkWithIcon";
 import "./ProductsSideBar.css";
 import useData from "../../hooks/useData";
 export default function ProductsSideBar() {
-  const { data: categories, errors } = useData("/category");
+  const { data: categories, errors } = useData(
+    "/category",
+    null,
+    ["categories"],
+    24 * 60 * 60 * 1000
+  );
   return (
     <aside className="product_sidebar">
       <h2>Category</h2>

@@ -4,6 +4,7 @@ import NavBar from "./components/Navbar/NavBar";
 import Routing from "./components/Routing/Routing";
 import { getJwt, getUser } from "./services/userServices";
 import setAuthToken from "./utils/setAuthToken";
+
 import {
   addToCartAPI,
   decreaseProductAPI,
@@ -15,12 +16,14 @@ import { ToastContainer, toast } from "react-toastify";
 import userContext from "./contexts/userContext";
 import cartContext from "./contexts/cartContext";
 import "react-toastify/dist/ReactToastify.css";
+import useData from "./hooks/useData";
 
 setAuthToken(getJwt());
 
 function App() {
   const [user, setUser] = useState("");
   const [cart, setCart] = useState([]);
+
   useEffect(() => {
     try {
       const jwtuser = getUser();

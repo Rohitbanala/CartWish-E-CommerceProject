@@ -3,7 +3,11 @@ import useData from "../../hooks/useData";
 import TableComponent from "../Common/Table";
 import "./MyOrderPage.css";
 export default function MyOrderPage() {
-  const { data: orders, errors, isLoading } = useData("/order");
+  const {
+    data: orders,
+    errors,
+    isLoading,
+  } = useData("/order", null, ["myorders"], 1 * 60 * 1000);
   function getProductString(order) {
     const productStringArr = order.products.map(
       (p) => `${p.product.title}(${p.quantity})`
