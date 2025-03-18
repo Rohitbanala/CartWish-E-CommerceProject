@@ -16,7 +16,6 @@ import { ToastContainer, toast } from "react-toastify";
 import userContext from "./contexts/userContext";
 import cartContext from "./contexts/cartContext";
 import "react-toastify/dist/ReactToastify.css";
-import useData from "./hooks/useData";
 
 setAuthToken(getJwt());
 
