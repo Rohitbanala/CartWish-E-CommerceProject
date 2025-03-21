@@ -10,7 +10,7 @@ export default function MyOrderPage() {
   } = useData("/order", null, ["myorders"], 1 * 60 * 1000);
   function getProductString(order) {
     const productStringArr = order.products.map(
-      (p) => `${p.product.title}(${p.quantity})`
+      (p) => `${p.product?.title}(${p.quantity})`
     );
     return productStringArr.join(", ");
   }
