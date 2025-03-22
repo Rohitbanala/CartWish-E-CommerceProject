@@ -1,4 +1,3 @@
-
 # CartWish 🛒
 
 **CartWish** is an e-commerce web application designed to provide a seamless shopping experience. It features a modern front-end built with React.js and integrates user authentication for secure access. The app includes features such as product browsing, featured products, and user-specific order management.
@@ -86,5 +85,5 @@ Follow these steps to set up and run the project locally:
 - **State Management**: Context API
 - **Tools**: VS Code, Git
 
----
+
 
