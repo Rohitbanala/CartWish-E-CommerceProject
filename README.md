@@ -6,11 +6,16 @@
 
 ## Features ✨
 
-- **User Authentication**: Secure login and signup using JWT authentication.
+- **User Authentication**: Secure login and signup functionality using JWT authentication.
 - **Product Display**: Fetch and display featured products and product listings dynamically.
 - **Order Management**: View and manage "My Orders" with data retrieved from protected API routes.
-- **Seamless Navigation**: Intuitive and user-friendly interface for smooth browsing.
+- **Cart Functionality**: Add, remove, and manage products in your cart for a seamless shopping experience.
+- **Sorting**: Sort products by rating and price to find exactly what you're looking for.
+- **Category-Wise Filtering**: Filter products by category for more precise browsing.
+- **Logout**: Securely log out of your account to protect your session.
+- **Seamless Navigation**: Intuitive and user-friendly interface for smooth browsing and interactions.
 
+  
 ---
 ## Screenshots
 
