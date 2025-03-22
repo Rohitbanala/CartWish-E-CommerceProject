@@ -1,6 +1,6 @@
 # CartWish 🛒
 
-**CartWish** is an e-commerce web application designed to provide a seamless shopping experience. It features a modern front-end built with React.js and integrates user authentication for secure access. The app includes features such as product browsing, featured products, and user-specific order management.
+**CartWish** is an e-commerce web application designed to provide a seamless shopping experience for electronic gadgets. With a modern front-end built using React.js, it offers a user-friendly interface and integrates secure user authentication. The application includes features such as browsing products, viewing featured items, sorting, and managing user-specific orders.
 
 ---
 
