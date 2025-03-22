@@ -17,25 +17,25 @@
 ## Screenshots
 
 ### Home Page(Before Login)
-![Home Page](images/homepage.png)
+![Home Page](https://github.com/Rohitbanala/CartWish-E-CommerceProject/blob/main/src/assets/screenshots/HomePage%20before%20Login.png)
 
 ### Home Page (After Login)
-![Home Page](images/moviedetails.png)
+![Home Page](https://github.com/Rohitbanala/CartWish-E-CommerceProject/blob/main/src/assets/screenshots/homepage%20after%20login.png)
 
 ### Products Page
-![Products Page](images/homepage.png)
+![Products Page](https://github.com/Rohitbanala/CartWish-E-CommerceProject/blob/main/src/assets/screenshots/products%20page.png)
 
 ### My Orders Page
-![My Orders](images/moviedetails.png)
+![My Orders](https://github.com/Rohitbanala/CartWish-E-CommerceProject/blob/main/src/assets/screenshots/myorderpage.png)
 
 ### Cart Page
-![Cart page](images/homepage.png)
+![Cart page](https://github.com/Rohitbanala/CartWish-E-CommerceProject/blob/main/src/assets/screenshots/cart%20page.png)
 
 ### Login Page
-![Login](images/moviedetails.png)
+![Login](https://github.com/Rohitbanala/CartWish-E-CommerceProject/blob/main/src/assets/screenshots/login%20page.png)
 
 ### SignUp Page
-![Sign Up](images/moviedetails.png)
+![Sign Up](https://github.com/Rohitbanala/CartWish-E-CommerceProject/blob/main/src/assets/screenshots/signupPage.png)
 
 ---
 
