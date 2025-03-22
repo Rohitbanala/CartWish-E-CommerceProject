@@ -19,12 +19,6 @@
 
 Follow these steps to set up and run the project locally:
 
-### Prerequisites
-Make sure you have the following tools installed on your system:
-- [Node.js](https://nodejs.org/) (LTS version recommended)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- A backend API to handle product data and user authentication (setup required separately)
-
 ### Steps
 1. **Clone the repository**:
    ```bash
@@ -60,30 +54,12 @@ Make sure you have the following tools installed on your system:
 
 ---
 
-## Folder Structure 📂
-
-```
-CartWish-E-CommerceProject/
-├── src/
-│   ├── components/       # Reusable UI components
-│   ├── pages/            # Application pages (e.g., Home, Product Details, My Orders)
-│   ├── services/         # API service for backend integration
-│   ├── App.js            # Main application file
-│   └── index.js          # Application entry point
-├── public/               # Static assets
-├── .env                  # Environment variables
-├── package.json          # Project metadata and dependencies
-└── README.md             # Documentation
-```
-
----
-
 ## Technologies Used 🛠️
 
 - **Frontend**: React.js, HTML, CSS, JavaScript
 - **Authentication**: JSON Web Tokens (JWT)
 - **API Integration**: Axios for backend communication
-- **State Management**: React State Hooks
+- **State Management**: Context API
 - **Tools**: VS Code, Git
 
 ---
@@ -102,41 +78,3 @@ CartWish-E-CommerceProject/
    - Retrieve user-specific order data from protected API routes.
    - Display order details in a user-friendly format.
 
----
-
-## Contribution Guidelines 🤝
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add some feature"
-   ```
-4. Push the branch:
-   ```bash
-   git push origin feature-name
-   ```
-5. Open a Pull Request.
-
----
-
-## License 📄
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## Contact 📬
-
-- **Developer**: Rohit Banala  
-- **Email**: [rohitbanala2003@gmail.com](mailto:rohitbanala2003@gmail.com)  
-- **LinkedIn**: [linkedin.com/in/rohitbanala](https://www.linkedin.com/in/rohitbanala)  
-- **GitHub**: [github.com/Rohitbanala](https://github.com/Rohitbanala)  
-```
-
-This `README.md` file ensures that anyone who accesses the **CartWish** repository has clear guidance on setting up, running, and contributing to the project.
