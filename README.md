@@ -34,6 +34,9 @@
 ### Movie Details Page
 ![Movie Details](images/moviedetails.png)
 
+### Movie Details Page
+![Movie Details](images/moviedetails.png)
+
 ---
 
 ## Getting Started 🚀
