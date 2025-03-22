@@ -14,6 +14,27 @@
 - **Seamless Navigation**: Intuitive and user-friendly interface for smooth browsing.
 
 ---
+## Screenshots
+
+### Home Page
+![Home Page](images/homepage.png)
+
+### Movie Details Page
+![Movie Details](images/moviedetails.png)
+
+### Home Page
+![Home Page](images/homepage.png)
+
+### Movie Details Page
+![Movie Details](images/moviedetails.png)
+
+### Home Page
+![Home Page](images/homepage.png)
+
+### Movie Details Page
+![Movie Details](images/moviedetails.png)
+
+---
 
 ## Getting Started 🚀
 
