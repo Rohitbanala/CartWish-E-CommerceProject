@@ -88,17 +88,3 @@ Follow these steps to set up and run the project locally:
 
 ---
 
-## Features in Detail 📝
-
-1. **Authentication**:
-   - User signup and login using JWT for secure sessions.
-   - Protected routes ensure only authenticated users can access specific features.
-
-2. **Product Browsing**:
-   - Fetch and display featured products dynamically from the backend.
-   - View detailed information about each product.
-
-3. **Order Management**:
-   - Retrieve user-specific order data from protected API routes.
-   - Display order details in a user-friendly format.
-
