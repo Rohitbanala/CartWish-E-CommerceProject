@@ -9,7 +9,6 @@
 - **User Authentication**: Secure login and signup using JWT authentication.
 - **Product Display**: Fetch and display featured products and product listings dynamically.
 - **Order Management**: View and manage "My Orders" with data retrieved from protected API routes.
-- **Responsive Design**: Fully responsive UI optimized for both desktop and mobile devices.
 - **Seamless Navigation**: Intuitive and user-friendly interface for smooth browsing.
 
 ---
