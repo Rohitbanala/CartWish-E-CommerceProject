@@ -1,6 +1,4 @@
-Here’s a comprehensive `README.md` file for **CartWish**:
 
-```markdown
 # CartWish 🛒
 
 **CartWish** is an e-commerce web application designed to provide a seamless shopping experience. It features a modern front-end built with React.js and integrates user authentication for secure access. The app includes features such as product browsing, featured products, and user-specific order management.
