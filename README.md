@@ -16,26 +16,26 @@
 ---
 ## Screenshots
 
-### Home Page
+### Home Page(Before Login)
 ![Home Page](images/homepage.png)
 
-### Movie Details Page
-![Movie Details](images/moviedetails.png)
+### Home Page (After Login)
+![Home Page](images/moviedetails.png)
 
-### Home Page
-![Home Page](images/homepage.png)
+### Products Page
+![Products Page](images/homepage.png)
 
-### Movie Details Page
-![Movie Details](images/moviedetails.png)
+### My Orders Page
+![My Orders](images/moviedetails.png)
 
-### Home Page
-![Home Page](images/homepage.png)
+### Cart Page
+![Cart page](images/homepage.png)
 
-### Movie Details Page
-![Movie Details](images/moviedetails.png)
+### Login Page
+![Login](images/moviedetails.png)
 
-### Movie Details Page
-![Movie Details](images/moviedetails.png)
+### SignUp Page
+![Sign Up](images/moviedetails.png)
 
 ---
 
