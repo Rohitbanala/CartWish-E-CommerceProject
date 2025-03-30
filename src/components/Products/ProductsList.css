@@ -29,7 +29,7 @@
 }
 
 @media (max-width: 1300.98px) {
-  .products_list_section {
+  /* .products_list_section {
     padding: 10px;
     padding-left: 20px;
   }
@@ -43,7 +43,7 @@
   }
   .products_list {
     justify-content: space-between;
-  }
+  } */
 }
 @media (max-width: 1100.98px) {
   .products_list_section {
