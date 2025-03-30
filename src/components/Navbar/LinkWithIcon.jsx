@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./LinkWithIcon.css";
-export default function ({ title, link, emoji, sidebar = false }) {
+export default function LinkWithIcon({ title, link, emoji, sidebar = false }) {
   return (
     <NavLink
       to={link}

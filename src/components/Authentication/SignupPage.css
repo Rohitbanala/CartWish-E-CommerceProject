@@ -61,3 +61,40 @@
   padding: 4px 8px;
   outline: none;
 }
+
+@media (max-width: 1300.98px) {
+  .signup_form {
+    width: 60%;
+  }
+  .signup_form_input {
+    grid-template-columns: 1fr 1fr;
+  }
+  .signup_textares_section {
+    grid-column: 1/2;
+  }
+}
+@media (max-width: 1100.98px) {
+  .signup_form {
+    width: 80%;
+  }
+  .signup_form_input {
+    grid-template-columns: 1fr 1fr;
+  }
+  .signup_textares_section {
+    grid-column: 1/2;
+  }
+}
+@media (max-width: 900.98px) {
+  .signup_form {
+    width: 90%;
+  }
+  .signup_form_input {
+    grid-template-columns: 1fr 1fr;
+  }
+  .signup_textares_section {
+    grid-column: 1/2;
+  }
+  .signup_textares_section {
+    margin-bottom: 20px;
+  }
+}

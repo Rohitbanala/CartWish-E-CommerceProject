@@ -4,3 +4,22 @@
   margin: 0 auto;
   padding: 32px 48px;
 }
+
+@media (max-width: 1300.98px) {
+  .myorder_page {
+    padding: 32px 32px;
+    width: 60%;
+  }
+}
+@media (max-width: 1100.98px) {
+  .myorder_page {
+    padding: 32px 24px;
+    width: 70%;
+  }
+}
+@media (max-width: 900.98px) {
+  .myorder_page {
+    padding: 32px 16px;
+    width: 80%;
+  }
+}

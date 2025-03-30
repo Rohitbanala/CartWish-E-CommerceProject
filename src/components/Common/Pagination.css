@@ -24,3 +24,49 @@
   background-color: #000;
   color: #fff;
 }
+
+/* @media (max-width: 1300.98px) {
+  .pagination_button {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  .pagination_button.active {
+    background-color: #000;
+    color: #fff;
+  }
+}
+@media (max-width: 1100.98px) {
+  .pagination_button {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .pagination_button.active {
+    background-color: #000;
+    color: #fff;
+  }
+  .pagination_button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+}
+@media (max-width: 900.98px) {
+  .pagination_button {
+    width: 25px;
+    height: 25px;
+    font-size: 10px;
+  }
+  .pagination_button.active {
+    background-color: #000;
+    color: #fff;
+  }
+  .pagination_button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  .pagination_button:active {
+    background-color: #000;
+    color: #fff;
+  }
+} */

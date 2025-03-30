@@ -3,3 +3,43 @@
   grid-template-columns: 1fr 4fr;
   padding: 20px;
 }
+
+@media (max-width: 1300.98px) {
+  .product_page {
+    padding: 15px;
+    grid-template-columns: 1fr 4fr;
+  }
+  .product_page h2 {
+    font-size: 24px;
+  }
+  .product_page .product_sidebar {
+    padding: 15px;
+  }
+}
+@media (max-width: 1100.98px) {
+  .product_page {
+    padding: 10px;
+    grid-template-columns: 1fr 4fr;
+  }
+  .product_page h2 {
+    font-size: 22px;
+  }
+  .product_page .product_sidebar {
+    padding: 10px;
+  }
+}
+@media (max-width: 900.98px) {
+  .product_page {
+    padding: 5px;
+    grid-template-columns: 1fr;
+  }
+  .product_page h2 {
+    font-size: 20px;
+  }
+  .product_page .product_sidebar {
+    padding: 5px;
+  }
+  .product_page .product_sidebar ul {
+    padding: 0;
+  }
+}

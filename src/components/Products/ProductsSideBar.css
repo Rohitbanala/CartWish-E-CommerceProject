@@ -8,3 +8,40 @@
   font-size: 26px;
   margin-bottom: 10px;
 }
+
+@media (max-width: 1300.98px) {
+  .product_sidebar {
+    padding: 10px 15px;
+  }
+  .product_sidebar h2 {
+    font-size: 24px;
+  }
+  .product_sidebar ul {
+    padding: 0;
+  }
+}
+@media (max-width: 1100.98px) {
+  .product_sidebar {
+    padding: 10px 10px;
+  }
+  .product_sidebar h2 {
+    font-size: 22px;
+  }
+  .product_sidebar ul {
+    padding: 0;
+  }
+}
+@media (max-width: 900.98px) {
+  .product_sidebar {
+    padding: 10px 5px;
+  }
+  .product_sidebar h2 {
+    font-size: 20px;
+  }
+  .product_sidebar ul {
+    padding: 0;
+  }
+  .product_sidebar li {
+    font-size: 16px;
+  }
+}

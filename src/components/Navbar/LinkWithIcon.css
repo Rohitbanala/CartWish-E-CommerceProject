@@ -20,3 +20,44 @@
   margin-left: 0;
   margin-right: 8px;
 }
+
+@media (max-width: 1300.98px) {
+  .navbar {
+    padding: 0 20px;
+  }
+  .sidebar_link {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+  .sidebar_link img {
+    width: 25px;
+  }
+}
+@media (max-width: 1100.98px) {
+  .navbar {
+    padding: 0 10px;
+  }
+  .sidebar_link {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+  .sidebar_link img {
+    width: 20px;
+  }
+}
+
+@media (max-width: 900.98px) {
+  .navbar {
+    padding: 0 5px;
+  }
+  .sidebar_link {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  .sidebar_link img {
+    width: 18px;
+  }
+  .link_emoji {
+    width: 20px;
+  }
+}
