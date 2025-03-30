@@ -5,7 +5,49 @@
   padding: 32px 48px;
 }
 
-@media (max-width: 1300.98px) {
+@media (max-width: 1344px) {
+  .myorder_page {
+    padding: 32px 20px;
+    width: 50%;
+  }
+  .myorder_page h2 {
+    font-size: 36px;
+  }
+  .myorder_page h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .myorder_page {
+    padding: 32px 24px;
+    width: 60%;
+  }
+  .myorder_page h2 {
+    font-size: 36px;
+  }
+  .myorder_page h2 {
+    font-size: 36px;
+  }
+  .myorder_page {
+    padding: 32px 16px;
+    width: 70%;
+  }
+}
+
+@media (max-width: 944px) {
+  /* Styles for max-width: 944px */
+}
+
+@media (max-width: 704px) {
+  /* Styles for max-width: 704px */
+}
+
+@media (max-width: 576px) {
+  /* Styles for max-width: 576px */
+}
+
+/* @media (max-width: 1300.98px) {
   .myorder_page {
     padding: 32px 32px;
     width: 60%;
@@ -22,4 +64,4 @@
     padding: 32px 16px;
     width: 80%;
   }
-}
+} */
