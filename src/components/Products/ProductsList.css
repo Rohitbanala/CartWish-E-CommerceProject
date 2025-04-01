@@ -29,21 +29,6 @@
 }
 
 @media (max-width: 1300.98px) {
-  /* .products_list_section {
-    padding: 10px;
-    padding-left: 20px;
-  }
-  .products_list_header h2 {
-    font-size: 24px;
-  }
-  .products_sorting {
-    font-size: 16px;
-    height: 30px;
-    padding: 0 4px;
-  }
-  .products_list {
-    justify-content: space-between;
-  } */
 }
 @media (max-width: 1100.98px) {
   .products_list_section {
