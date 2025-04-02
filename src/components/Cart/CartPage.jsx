@@ -35,7 +35,7 @@ function CartPage() {
     const updatedPrices = { ...currentPrices };
 
     Object.keys(updatedPrices).forEach((id) => {
-      const priceDrop = Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+      const priceDrop = Math.floor(Math.random() * (50 - 0 + 1)) + 0;
       updatedPrices[id] = Math.max(1, updatedPrices[id] - priceDrop); // Ensure price doesn't go below 1
 
       toast.success(
