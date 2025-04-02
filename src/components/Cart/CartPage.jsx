@@ -52,12 +52,12 @@ function CartPage() {
     setTimeout(() => {
       setCurrentPrices(originalPrices);
       setPriceUpdateInProgress(false); // Price update is completed
-    }, 3600000); // 1 hour in milliseconds
+    }, 43200000); // 12 hour in milliseconds
   };
 
   useEffect(() => {
     // Decrease price every 45 minutes
-    const interval = setInterval(decreasePrice, 2700000); // 45 minutes in milliseconds
+    const interval = setInterval(decreasePrice, 172800000); // 2 days in milliseconds
     return () => clearInterval(interval);
   }, [currentPrices, originalPrices, priceUpdateInProgress]);
 
