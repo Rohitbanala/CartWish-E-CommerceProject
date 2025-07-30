@@ -5,7 +5,7 @@ import { memo, useContext, useState } from "react";
 import useData from "../../hooks/useData";
 import cartContext from "../../contexts/cartContext";
 import userContext from "../../contexts/userContext";
-
+import config from "../../config.json";
 function SingleProduct() {
   const [selectedImage, setSelectedImage] = useState(0);
   const { cart, addToCart } = useContext(cartContext);
@@ -29,7 +29,7 @@ function SingleProduct() {
             <div className="single_product_thumbnails">
               {product.images.map((image, index) => (
                 <img
-                  src={`http://localhost:5000/products/${image}`}
+                  src={`${config.backendURL}/products/${image}`}
                   alt={image.title}
                   className={selectedImage === index ? "selected_image" : ""}
                   onClick={() => imageHandler(index)}
