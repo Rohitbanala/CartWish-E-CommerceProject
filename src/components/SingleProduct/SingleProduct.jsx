@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import QuantityInput from "./QuantityInput";
 import "./SingleProduct.css";
+import config from "../../config.json";
 import { memo, useContext, useState } from "react";
 import useData from "../../hooks/useData";
 import cartContext from "../../contexts/cartContext";
@@ -37,7 +38,7 @@ function SingleProduct() {
               ))}
             </div>
             <img
-              src={`http://localhost:5000/products/${product.images[selectedImage]}`}
+              src={`${config.backendURL}/products/${product.images[selectedImage]}`}
               alt={product.title}
               className="single_product_display"
             />
